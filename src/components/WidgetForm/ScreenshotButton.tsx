@@ -6,8 +6,8 @@ import html2canvas from 'html2canvas';
 import { Loading } from '../Loading';
 
 interface ScreenshotButtonProps {
-    screenshot: string;
-    onScreenshotTook: (screenshot: string) => void;
+    screenshot: string | null;
+    onScreenshotTook: (screenshot: string | null) => void;
 }
 
 export function ScreenshotButton({ screenshot, onScreenshotTook }: ScreenshotButtonProps){
@@ -32,6 +32,7 @@ export function ScreenshotButton({ screenshot, onScreenshotTook }: ScreenshotBut
                 style={{
                     backgroundImage: `url(${screenshot})`,
                 }}
+                onClick={() => onScreenshotTook(null)}
             >
                 <Trash weight='fill' />
             </button>
